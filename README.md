@@ -50,8 +50,33 @@ class MyApp extends StatelessWidget {
 
 
 ## AppBar
-AppBar ვიჯეტი აპლიკაციის ზედა ნაწილში მყოფი ნავიგაციის ელემენტია. როგორც წესი AppBar ვიჯეტი შედგება აპლიკაციის სათაურისა და ერთი ან მეტი ღილაკისაგან (actions). AppBar ვიჯეტს ასევე შეიძლება ჰქონდეს ვიჯეტი დასაწყისში(მარცხნივ) როგორც წესი აპლიკაციის ლოგო, რომელზე დაჭერისასაც გადავდივართ მთავარ გვერდზე. სურათზე ქვემოთ მოცემულია აპლიკაცია სადაც AppBar ვიჯეტი შედგება: leading ვიჯეტისაგან(Home Icon), title Text ვიჯეტისაგან და ორი action ღილაკისაგან (search და setting იქონები)
+AppBar ვიჯეტი აპლიკაციის ზედა ნაწილში მყოფი ნავიგაციის ელემენტია. როგორც წესი AppBar ვიჯეტი შედგება აპლიკაციის სათაურისა და ერთი ან მეტი ღილაკისაგან (actions). AppBar ვიჯეტს ასევე შეიძლება ჰქონდეს ვიჯეტი დასაწყისში(მარცხნივ) როგორც წესი აპლიკაციის ლოგო, რომელზე დაჭერისასაც გადავდივართ მთავარ გვერდზე. სურათზე ქვემოთ მოცემულია აპლიკაცია სადაც AppBar ვიჯეტი შედგება: leading ვიჯეტისაგან(Home Icon), title Text ვიჯეტისაგან და ორი action ღილაკისაგან (search და setting იქონები)<br />
 <img src="/screenshots/appbarfull.jpg" width=300><br /><br />
+AppBar ვიჯეტის შესაბამისი კოდი კი ასე გამოიყურება
+
+```dart
+home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(onPressed: () {}, icon: Icon(Icons.home,),),
+          title: Text("My App"),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                // Perform search operation
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                // Perform add operation
+              },
+            ),
+          ],
+        ),
+),
+
+```
 
 
 ## Text
