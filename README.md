@@ -56,30 +56,64 @@ AppBar ვიჯეტის შესაბამისი კოდი კი 
 
 ```dart
 home: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(onPressed: () {}, icon: Icon(Icons.home,),),
-          title: Text("My App"),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                // Perform search operation
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {
-                // Perform add operation
-              },
-            ),
-          ],
-        ),
+  appBar: AppBar(
+    leading: IconButton(onPressed: () {}, icon: Icon(Icons.home,),),
+    title: Text("My App"),
+    actions: [
+      IconButton(
+        icon: Icon(Icons.search),
+        onPressed: () {
+          // Perform search operation
+        },
+      ),
+      IconButton(
+        icon: Icon(Icons.settings),
+        onPressed: () {
+          // Perform add operation
+        },
+      ),
+    ],
+  ),
 ),
 
 ```
 
 
 ## Text
+Text ვიჯეტი ერთერთი ყველაზე მარტივი და ხშირად გამოყენებადი Flutter ვიჯეტია. Text ვიჯეტის დანიშნულებაა დაარენდეროს(ეკრანზე ასახოს) მოცემული string_ი. Text ვიჯეტს ასევე შეუძლია ამ string_ის ფერის, ფონტის, ზომის, და სხვა მახასიათებლების კონტროლი.
+Text ვიჯეტი პირველად AppBar ვიჯეტში ვნახეთ, სადაც მას წინასწარ განსაზღვრული სტილი აქვს(ფონტის ზომა, ფერი). ახლა ვნახოთ როგორ გამოიყურება Text ვიჯეტი Scaffold ვიჯეტის body პარამეტრში:<br />
+<img src="/screenshots/text.jpg" width=300><br /><br />
+მოცემული Text ვიჯეტის კოდი ასე გამოიყურება:
+
+```dart
+home: Scaffold(
+  appBar: AppBar(
+    title: Text("My App"),
+
+  ),
+  body: Text("Hello World"),
+),
+```
+
+Text ვიჯეტს აქვს ერთი უსახელო პარამეტრი რომელიც ელოდება String მნიშვნელობას. Text ვიჯეტს ასევ აქვს style პარამეტრი, რომლის დახმარებითაც შეგვიძლია ტექსტის ფონტსი, ფერის, ზომის და სხვა მრავალი მახასიათებლის შეცვლა. სურათზე მოცემულია Text ვიჯეტი, რომლის ფონტის ზომა არის 22, ფერი კი ღია ცისფერი.<br />
+<img src="/screenshots/textstyled.jpg" width=300><br /><br />
+
+სურათზე მოცემული Text ვიჯეტის კოდი კი ასე გამოიყურება 
+
+```dart
+home: Scaffold(
+  appBar: AppBar(
+    title: Text("My App"),
+  ),
+  body: Text(
+    style: TextStyle(
+      fontSize: 22,
+      color: Colors.blue,
+    ),
+    "Hello World",
+  ),
+),
+```
 
 ## Container
 
