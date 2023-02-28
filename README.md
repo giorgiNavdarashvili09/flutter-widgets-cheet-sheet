@@ -116,6 +116,54 @@ home: Scaffold(
 ```
 
 ## Container
+Container ვიჯეტი გამოიყენება ოთკუთხედი ფორმის ვიზუალური ეფექტის შესაქმნელად. Container ვიჯეტის საშვალებით ასევე შეგვიძლია სხვა ვიჯეტებს მივცეთ უკანა ფონი (background color), მარჯინები, პადინგები, სურათი უკანა ფონად, და ა.შ. სურათზე მოცემულია ყვითელი Container ვიჯეტი. Container ვიჯეტის ზომები დამოკიდებულია მის შვილ ვიჯეტზე ან/და Container ვიჯეტის width და height პარამეტრებზე.
+იმ შემთხვევაში თუ კი Container ვიჯეტს არ ყავს შვილი ვიჯეტი და არ აქვს გაწერილი width და height პარამეტრი იგი იკავებს თავისუფალ ადგილს სრულად. თუკი Container ვიჯეტს გაწერილი აქვს შვილი ვიჯეტი და არ აქვს გაწერილი width და height პარამეტრი Container ვიჯეტი დაიკავებს იმხელა ადგილს რამხელაც მის შვილ ვიჯეტს სჭირდება. Container ვიჯეტის width და height პარამეტრებით შეგვიძლია მას მივანიჭოთ ჩვენთვის სასურველი ზომები იმის მიუხედავად ყავს თუ არა მას შვილი ვიჯეტი. ქვემოთ მოცემულია ვარიანტები სადაც
+1. Container ვიჯეტს არ ყავს შვილი ვიჯეტი და არ აქვს გაწერილი width და height პარამეტრები<br />
+<img src="/screenshots/contnosizenochild.jpg" width=300><br /><br />
+
+```dart
+home: Scaffold(
+  appBar: AppBar(
+    title: Text("My App"),
+  ),
+  body: Container(
+    color: Colors.yellow,
+  ),
+),
+```
+
+2. Container ვიჯეტს არ აქვს გაწერილი width და height პარამეტრები თუმცა ყავს შვილი ვიჯეტი (Text ვიჯეტი)<br />
+<img src="/screenshots/contchild.jpg" width=300><br /><br />
+
+```dart
+home: Scaffold(
+  appBar: AppBar(
+    title: Text("My App"),
+  ),
+  body: Container(
+    color: Colors.yellow,
+    child: Text("Flutter"),
+  ),
+),
+```
+
+3. Container ვიჯეტს ყავს შვილი ვიჯეტი თუმცა ასევე გაწერილი აქვს width და height პარამეტრები<br />
+
+<img src="/screenshots/contchildandsize.jpg" width=300><br /><br />
+
+```dart
+home: Scaffold(
+  appBar: AppBar(
+    title: Text("My App"),
+  ),
+  body: Container(
+    color: Colors.yellow,
+    width: 100,
+    height: 100,
+    child: Text("Flutter"),
+  ),
+),
+```
 
 ## Center
 
