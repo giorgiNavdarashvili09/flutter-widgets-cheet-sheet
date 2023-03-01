@@ -282,10 +282,14 @@ mainAxisAlignment პარამეტრს შეგვიძლია მი
 3. MainAxisAlignment.end - შვილ ელემენტებს განალაგებს Column ვიჯეტში ქვემოთ.
 4. MainAxisAlignment.spaceAround - შვილი ელემენტების გარშემო(ზემოთ და ქვემოთ) თავისუფალ ადგილს თანაბრად ანაწილებს
 5. MainAxisAlignment.spaceBetween - შვილ ელემენტებს შორის თავისუფალ ადგილს თანაბრად ანაწილებს
-6. MainAxisAlignment.spaceEvenly - შვილ ელემენტებსა და Column ვიჯეტის კიდეებს შორის თავისუფალ ადგილს თანაბრად ანაწილებს<br />
+6. MainAxisAlignment.spaceEvenly - შვილ ელემენტებსა და Column ვიჯეტის კიდეებს შორის თავისუფალ ადგილს თანაბრად ანაწილებს<br /><br />
 ქვემოთ მოცემულ სურათებზე მოცემულია Column ვიჯეტები ამ მნიშვნელობებით: <br />
 <img src="/screenshots/columnmainstart.jpg" width=300>
-<img src="/screenshots/columnmainstart.jpg" width=300>
+<img src="/screenshots/columnmaincenter.jpg" width=300>
+<img src="/screenshots/columnmainend.jpg" width=300>
+<img src="/screenshots/columnmainaround.jpg" width=300>
+<img src="/screenshots/columnmainbetween.jpg" width=300>
+<img src="/screenshots/columnmainevenly.jpg" width=300>
 
 ## Row
 
