@@ -453,9 +453,127 @@ body: Container(
 
 Column ვიჯეტის crossAxisAlignment პარამეტრის დახმარებით შეგვიძლია ვაკონტროლოთ შვილი ვიჯეტების განლაგება ჰორიზონტალურად.
 crossAxisAlignment პარამეტრს შეგვიძლია მივანიჭოთ შემდეგი მნიშვნელობები
-1. CrossAxisAlignment.start - შვილ ელემენტებს განალაგებს Column ვიჯეტში მარცხნივ (default მნიშვნელობა)
-2. CrossAxisAlignment.center - შვილ ელემენტებს განალაგებს Column ვიჯეტის ცენტრში ჰორიზონტალურად.
+1. CrossAxisAlignment.start - შვილ ელემენტებს განალაგებს Column ვიჯეტში მარცხნივ 
+2. CrossAxisAlignment.center - შვილ ელემენტებს განალაგებს Column ვიჯეტის ცენტრში ჰორიზონტალურად(default მნიშვნელობა).
 3. CrossAxisAlignment.end - შვილ ელემენტებს განალაგებს Column ვიჯეტში მარჯვნივ.
+4. CrossAxisAlignment.stretch - Column იკავებს თავისუფალ ადგილს სრულად ჰორიზონტალურად. აიძულებს შვილ ვიჯეტებს დაიკავონ სრული სიგანე Column ვიჯეტის.<br /><br />
+ქვემოთ მოცემულ სურათებზე მოცემულია Column ვიჯეტები ამ მნიშვნელობებით: <br />
+<img src="/screenshots/horizontalstart.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
+
+<br />
+<img src="/screenshots/horizontalcenter.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
+
+<br />
+<img src="/screenshots/horizontalend.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.end,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
+
+<br />
+<img src="/screenshots/horizontalstretch.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
+
+
 
 ## Row
  
