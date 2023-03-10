@@ -573,9 +573,246 @@ body: Container(
 ),
 ```
 
-
-
 ## Row
+Row ვიჯეტი Flutter_ში გამოიყენება ვიჯეტების ჰორიზონტალურად განლაგებისათვის. სურათზე მოცემულია სამი Container ვიჯეტი, რომელიც Column ვიჯეტის დახმარებით ჰორიზონტალურად დავალაგეთ მარცხნიდან ქვემოთ.<br /><br />
+<img src="/screenshots/row.jpg" width=300><br />
+
+სურათის შესაბამისი კოდი ასე გამოიყურება:
+
+```dart
+body: Row(
+  children: [
+    Container(
+      color: Colors.red,
+      width: 100,
+      height: 100,
+    ),
+    Container(
+      color: Colors.green,
+      width: 100,
+      height: 100,
+    ),
+    Container(
+      color: Colors.blue,
+      width: 100,
+      height: 100,
+    ),
+  ],
+),
+```
+
+Row ვიჯეტი ჰორიზონტალურად სრულად იკავებს თავისუფალ ადგილს ხოლო ვერტიკალურად იმდენს, რამდენიც მის შვილ ვიჯეტებს სჭირდება. ეს თვისება კარგად გამოჩნდება თუკი Row ვიჯეტს ჩავსვავთ Container ვიჯეტში და მივანიჭებთ უკანა ფონს. ასევე შვილ Container ვიჯეტებს გავუწეროთ განსხვავებული height_ს.<br /><br />
+<img src="/screenshots/rowfull.jpg" width=300><br />
+სურათზე მოცემული Row ვიჯეტის კოდი ასე გამოიყურება:
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Row(
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 300,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 100,
+        height: 200,
+      ),
+    ],
+  ),
+),
+```
+
+Row ვიჯეტის mainAxisAlignment პარამეტრის დახმარებით შეგვიძლია ვაკონტროლოთ შვილი ვიჯეტების განლაგება ჰორიზონტალურად. mainAxisAlignment პარამეტრს შეგვიძლია მივანიჭოთ შემდეგი მნიშვნელობები
+
+MainAxisAlignment.start - შვილ ელემენტებს განალაგებს Row ვიჯეტში მარცხნივ (default მნიშვნელობა)
+MainAxisAlignment.center - შვილ ელემენტებს განალაგებს Row ვიჯეტის ცენტრში ჰორიზონტალურად.
+MainAxisAlignment.end - შვილ ელემენტებს განალაგებს Row ვიჯეტში მარჯვნივ.
+MainAxisAlignment.spaceAround - შვილი ელემენტების გარშემო(მარცხნივ და მარჯვნივ) თავისუფალ ადგილს თანაბრად ანაწილებს.
+MainAxisAlignment.spaceBetween - შვილ ელემენტებს შორის თავისუფალ ადგილს თანაბრად ანაწილებს
+MainAxisAlignment.spaceEvenly - შვილ ელემენტებსა და Row ვიჯეტის კიდეებს შორის თავისუფალ ადგილს თანაბრად ანაწილებს
+
+ქვემოთ მოცემულ სურათებზე მოცემულია Row ვიჯეტები ამ მნიშვნელობებით:<br /><br />
+<img src="/screenshots/rowmainstart.jpg" width=300><br />
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 300,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 100,
+        height: 200,
+      ),
+    ],
+  ),
+),
+```
+
+<img src="/screenshots/rowmaincenter.jpg" width=300><br />
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 300,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 100,
+        height: 200,
+      ),
+    ],
+  ),
+),
+```
+
+<img src="/screenshots/rowmainend.jpg" width=300><br />
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 300,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 100,
+        height: 200,
+      ),
+    ],
+  ),
+),
+```
+
+<img src="/screenshots/rowmainaround.jpg" width=300><br />
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 300,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 100,
+        height: 200,
+      ),
+    ],
+  ),
+),
+```
+<img src="/screenshots/rowmainbetween.jpg" width=300><br />
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 300,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 100,
+        height: 200,
+      ),
+    ],
+  ),
+),
+```
+
+<img src="/screenshots/rowmainevenly.jpg" width=300><br />
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 300,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 100,
+        height: 200,
+      ),
+    ],
+  ),
+),
+```
+
+
+
+
+
+
+
  
 ## StatelessWidget
 
