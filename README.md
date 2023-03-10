@@ -285,14 +285,180 @@ mainAxisAlignment პარამეტრს შეგვიძლია მი
 6. MainAxisAlignment.spaceEvenly - შვილ ელემენტებსა და Column ვიჯეტის კიდეებს შორის თავისუფალ ადგილს თანაბრად ანაწილებს<br /><br />
 ქვემოთ მოცემულ სურათებზე მოცემულია Column ვიჯეტები ამ მნიშვნელობებით: <br />
 <img src="/screenshots/columnmainstart.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
+
 <img src="/screenshots/columnmaincenter.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
+
 <img src="/screenshots/columnmainend.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
+
 <img src="/screenshots/columnmainaround.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
+
 <img src="/screenshots/columnmainbetween.jpg" width=300>
+
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
 <img src="/screenshots/columnmainevenly.jpg" width=300>
 
-## Row
+```dart
+body: Container(
+  color: Colors.grey,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 300,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 200,
+        height: 100,
+      ),
+    ],
+  ),
+),
+```
 
+Column ვიჯეტის crossAxisAlignment პარამეტრის დახმარებით შეგვიძლია ვაკონტროლოთ შვილი ვიჯეტების განლაგება ჰორიზონტალურად.
+crossAxisAlignment პარამეტრს შეგვიძლია მივანიჭოთ შემდეგი მნიშვნელობები
+1. CrossAxisAlignment.start - შვილ ელემენტებს განალაგებს Column ვიჯეტში მარცხნივ (default მნიშვნელობა)
+2. CrossAxisAlignment.center - შვილ ელემენტებს განალაგებს Column ვიჯეტის ცენტრში ჰორიზონტალურად.
+3. CrossAxisAlignment.end - შვილ ელემენტებს განალაგებს Column ვიჯეტში მარჯვნივ.
+
+## Row
+ 
 ## StatelessWidget
 
 ## StatefulWidget
