@@ -807,17 +807,256 @@ body: Container(
 ),
 ```
 
+Row ვიჯეტის crossAxisAlignment პარამეტრის დახმარებით შეგვიძლია ვაკონტროლოთ შვილი ვიჯეტების განლაგება ვერტიკალურად. crossAxisAlignment პარამეტრს შეგვიძლია მივანიჭოთ შემდეგი მნიშვნელობები
+
+CrossAxisAlignment.start - შვილ ელემენტებს განალაგებს Row ვიჯეტში ზემოთ
+CrossAxisAlignment.center - შვილ ელემენტებს განალაგებს Row ვიჯეტის ცენტრში ვერტიკალურად(default მნიშვნელობა).
+CrossAxisAlignment.end - შვილ ელემენტებს განალაგებს Row ვიჯეტში ქვემოთ.
+CrossAxisAlignment.stretch - Row ვიჯეტი იკავებს თავისუფალ ადგილს სრულად ვერტიკალურად. აიძულებს შვილ ვიჯეტებს დაიკავონ სრული სიგრძე Row ვიჯეტის.
+
+ქვემოთ მოცემულ სურათებზე მოცემულია Row ვიჯეტები ამ მნიშვნელობებით:
 
 
+## State 
+In Flutter, the term "state" refers to the current data values or conditions of a widget. The state of a widget can change over time in response to user input, network requests, or any other source of events that cause the widget to update its content or behavior.
 
+Flutter ში ტერმინი "state"(მდგომარეობა) გამოიყენება აპლიკაციის მიმდინარე ინფორმაციის/მდგომარეობის აღსანიშნავად. აპლიკაციის მდგომარეობა(state) შეიძლება შეიცვალოს, გარკვეული დროის განმავლობაში, მომხმარებლის მიერ ინტერაქციის, ინტერნეტ რექვესთის ან სხვა რაიმე წყაროს გამო.
+მაგალითისთვის მოცემულ სურათში state_ში შეგვიძლია ჩავთვალოთ: ტექსტის მნიშვნელობა, კონტეინერის ფერი, სურათის წყარო და ა.შ.<br /><br />
+<img src="/screenshots/state.jpg" width=300><br />
 
+Flutter_ში გვაქვს ორი ტიპის ვიჯეტი: StatelessWidget და StatefulWidget
 
-
- 
 ## StatelessWidget
+Flutter_ში StatelessWidget არის ვიჯეტი რომლის მდგომარეობა(state) არ იცვლება. ქვევით მოცემულია StatelessWidget_ის მაგალითი.
+
+```dart
+class LittleSquare extends StatelessWidget {
+  const LittleSquare({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      width: 100,
+      height: 100,
+    );
+  }
+}
+```
+მოცემულ მაგალითში ვიჯეტის state არის : Container ვიჯეტის ფერი, სიგანე და სიგრძე. დავუშვათ გვინდა კონტეინერის ვიჯეტზე თითის დაჭერისას მისი ფერი შევცვალოთ. StatelessWidget_ი ამის საშვალებას არ გვაძლევს, ამისათვის ჩვენ გვჭირდება StatefulWidget.
 
 ## StatefulWidget
+Flutter_ში StatefulWidget არის ვიჯეტი რომლის მდგომარეობა(state) შეიძლება შეიცვალოს. მაგალითისთვის ავიღოთ LittleSquare ვიჯეტი და გადავაკეთოთ StatefulWidget_ად.
+LittleSquare ვიჯეტის კოდი ახლა ასე გამოიყურება:
 
-## TextButton  
+```dart
+
+class LittleSquare extends StatefulWidget {
+  const LittleSquare({Key? key}) : super(key: key);
+
+  @override
+  State<LittleSquare> createState() => _LittleSquareState();
+}
+
+class _LittleSquareState extends State<LittleSquare> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      width: 100,
+      height: 100,
+    );
+  }
+}
+
+```
+
+მოცემულ მაგალითში დავუშვათ გვინდა კონტეინერის ვიჯეტზე თითის დაჭერისას მისი ფერი შევცვალოთ. ამისათვის პირველ რიგში შევქმნათ ცვლადი, რომელშიც შევინახავთ კონტეინერის თავდაპირველ ფერს. შემდეგ Container ვიჯეტის პარამეტრ color_ს გავუწეროთ ფერი ჩვენი შექმნილი ცვლადის დახმარებით. ამ ცვლილებების შემდეგ ჩვენი LittleSquare_ის კოდი ასე გამოიყურება:
+
+```dart
+
+class LittleSquare extends StatefulWidget {
+  const LittleSquare({Key? key}) : super(key: key);
+
+  @override
+  State<LittleSquare> createState() => _LittleSquareState();
+}
+
+class _LittleSquareState extends State<LittleSquare> {
+
+  var containerColor = Colors.blue;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: containerColor,
+      width: 100,
+      height: 100,
+    );
+  }
+}
+
+```
+
+შემდეგ იმისათვის რომ შეგვეძლოს Container ვიჯეტზე თითის დაჭერისას რაიმეს გაკეთება, Container ვიჯეტს მოვათავსებთ GestureDetector ვიჯეტში და გავუწერთ onTap პარამეტრს. ამ ცვლილებების შემდეგ ჩვენი LittleSquare_ის კოდი ასე გამოიყურება:
+
+
+```dart
+
+class LittleSquare extends StatefulWidget {
+  const LittleSquare({Key? key}) : super(key: key);
+
+  @override
+  State<LittleSquare> createState() => _LittleSquareState();
+}
+
+class _LittleSquareState extends State<LittleSquare> {
+
+  var containerColor = Colors.blue;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        color: containerColor,
+        width: 100,
+        height: 100,
+      ),
+    );
+  }
+}
+
+
+```
+
+ამის შემდეგ ჩვენ შეგვიძლია onTap ფუნქციაში შევცვალოთ containerColor ცვლადის მნიშვნელობა ჩვენთვის სასურველი ფერით.
+
+```dart
+
+class LittleSquare extends StatefulWidget {
+  const LittleSquare({Key? key}) : super(key: key);
+
+  @override
+  State<LittleSquare> createState() => _LittleSquareState();
+}
+
+class _LittleSquareState extends State<LittleSquare> {
+
+  var containerColor = Colors.blue;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        containerColor = Colors.green;
+      },
+      child: Container(
+        color: containerColor,
+        width: 100,
+        height: 100,
+      ),
+    );
+  }
+}
+
+
+```
+შეტანილი ცვლილების მიუხედავად Container ვიჯეტზე დაჭერისას მისი ფერი არ იცვლება. ამის მიზეზი არის ის თუ როგორ მუშაობს StatefulWidge_ი. StatefulWidget_მა იმისათვის რომ containerColor_ის მნიშვნელობა ასახოს აპლიკაციის ვიზუალში(თავიდან დაუძახოს build მეთოდს და დახატოს Container ვიჯეტი ახალი ფერით) გვჭირდება სპეციალური სინტაქსი. setState ფუნქცია Flutter_ს ეუბნება, რომ შეტანილი ცვლილება state_ში უნდა აისახოს აპლიკაციის ვიზუალში. შეტანილი ცვლილების შემდეგ ჩვენი LittleSquare ვიჯეტის კოდი ასე გამოიყურება:
+
+```dart
+
+class LittleSquare extends StatefulWidget {
+  const LittleSquare({Key? key}) : super(key: key);
+
+  @override
+  State<LittleSquare> createState() => _LittleSquareState();
+}
+
+class _LittleSquareState extends State<LittleSquare> {
+
+  var containerColor = Colors.blue;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          containerColor = Colors.green;
+        });
+      },
+      child: Container(
+        color: containerColor,
+        width: 100,
+        height: 100,
+      ),
+    );
+  }
+}
+```
+
+ამჯერად Container ვიჯეტზე დაჭერისას მისი ფერი იცვლება.
+
+ამ მაგალითში გამოყენებული კოდი სრულად:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(title: Text("State"),),
+        body: Center(
+          child: LittleSquare(),
+        )
+      )
+    );
+  }
+}
+
+class LittleSquare extends StatefulWidget {
+  const LittleSquare({Key? key}) : super(key: key);
+
+  @override
+  State<LittleSquare> createState() => _LittleSquareState();
+}
+
+class _LittleSquareState extends State<LittleSquare> {
+
+  var containerColor = Colors.blue;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          containerColor = Colors.green;
+        });
+      },
+      child: Container(
+        color: containerColor,
+        width: 100,
+        height: 100,
+      ),
+    );
+  }
+}
+
+```
+
+## TextButton
 
 ## TextField
