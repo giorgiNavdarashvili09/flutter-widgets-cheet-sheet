@@ -1058,5 +1058,76 @@ class _LittleSquareState extends State<LittleSquare> {
 ```
 
 ## TextButton
+Flutter_ში TextButton არის ერთერთი ღილაკის ვიჯეტი, რომელიც ეკრანზე გამოსახავს ტექსტს და შეუძლია ამ ტექსტზე დაჭერისას შეასრულოს რაიმე ინსტრუქცია. TextButton ვიჯეტის კოდი ასე გამოიყურება
+
+```dart
+TextButton(
+  onPressed: () {
+    // ინსტრუქცია(ები) რომლებიც შესრულდება ღილაკზე დაჭერისას
+  },
+  child: Text('Click me'),
+)
+```
 
 ## TextField
+Flutter_ში TextField ვიჯეტის დახმარებით შეგვიძლია მომხმარებლისაგან მივიღოთ ტექსტური ინფორმაცია. რათქმაუნდა იმისათვის იმისათვის, რომ ეს ინფორმაცია შემდეგ დავამუშაოთ დაგვჭირდება StatefulWidget_ი. აპლიკაციის სრული კოდი ასე გამოიყურება:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("User Input"),
+        ),
+        body: const HomePage(),
+      ),
+    );
+  }
+}
+
+class UserInput extends StatefulWidget {
+  const UserInput({Key? key}) : super(key: key);
+
+  @override
+  State<UserInput> createState() => _UserInputState();
+}
+
+class _UserInputState extends State<UserInput> {
+  var inputController = TextEditingController();
+  var userText = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(userText),
+        TextField(
+          controller: inputController,
+        ),
+        TextButton(onPressed: () {
+          setState(() {
+            userText = inputController.text;
+          });
+        }, child: Text("Save user"))
+      ],
+    );
+  }
+}
+
+```
+
+ყურადღება მიაქციე inputController და userText ცვლადს. TextEditingController() აბრუნებს ობიექტს რომლის საშვალებით შეგვიძლია ვაკონტროლოთ TextField ვიჯეტი. ჩვენს TextField ვიჯეტს უნდა მივუთითოთ თუ რომელი კონტროლერი ეკუთვნის მას controller პარამეტრის დახმარებით. ამის შემდეგ ჩვენ შეგვიძლია inputController იდან ამოვიღოთ მომხმარებლის მიერ შეყვანილი ტექსტი და მივანიჭოთ ის ჩვენს usetText ცვლადს.
